@@ -18,7 +18,9 @@ const Category = ({
     <button
       onClick={() => handleChange(category)}
       className={`${
-        activeCategory === category ? "bg-slate-400" : "bg-slate-200"
+        activeCategory === category
+          ? "bg-slate-400 dark:bg-slate-50 text-black"
+          : "bg-slate-200 dark:bg-zinc-900"
       } px-3 py-1 rounded-full font-bold text-xs uppercase`}
     >
       {category}

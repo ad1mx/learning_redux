@@ -1,9 +1,8 @@
+import Body from "@/components/Body";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 import React from "react";
 import Providers from "@/components/Providers";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Learning",
@@ -12,13 +11,9 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" dir="ltr">
-      <body>
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
-      </body>
+      <Providers>
+        <Body>{children}</Body>
+      </Providers>
     </html>
   );
 };

@@ -17,7 +17,9 @@ const Skeleton: React.FC<
   return (
     <div
       className={`animate-pulse ${`rounded-${rounded}`} ${
-        variant === "default" ? "bg-slate-200" : "bg-white"
+        variant === "default"
+          ? "bg-slate-200 dark:bg-zinc-900"
+          : "bg-white dark:bg-zinc-800"
       } ${className}`}
       {...props}
     >

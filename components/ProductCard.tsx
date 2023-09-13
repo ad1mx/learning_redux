@@ -29,7 +29,7 @@ const ProductCard = ({
   };
 
   return (
-    <div className="p-4 bg-slate-200 rounded-md flex flex-col gap-y-2 justify-between">
+    <div className="p-4 bg-slate-200 dark:bg-zinc-900 rounded-md flex flex-col gap-y-2 justify-between">
       <div className="flex flex-col gap-y-2">
         <div className="relative h-[250px]">
           <Image

@@ -12,7 +12,7 @@ const CartPage = () => {
   );
 
   return (
-    <main className="py-4 px-10">
+    <main className="py-8 px-10">
       <h2 className="title">Cart</h2>
       <div className="mt-4 products-grid">
         {cartProducts.length
