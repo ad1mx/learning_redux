@@ -1,21 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Product, fetchProducts } from "@/store/features/productsSlice";
+import { fetchProducts } from "@/store/features/productsSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import Categories from "../Categories";
 import ProductCard from "../ProductCard";
 import ProductsLoader from "../ProductsLoader";
-import Categories from "../Categories";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-
-const ProductsList = ({ products }: { products: Product[] }) => {
-  return (
-    <>
-      {products.map((p) => (
-        <ProductCard key={p.id} product={p} />
-      ))}
-    </>
-  );
-};
 
 const Products = () => {
   const dispatch = useAppDispatch();
@@ -43,7 +33,7 @@ const Products = () => {
       <div className="mt-4 products-grid">
         {!isLoading ? (
           !isError ? (
-            <ProductsList products={products} />
+            products.map((p) => <ProductCard key={p.id} product={p} />)
           ) : (
             "Failed to load products."
           )

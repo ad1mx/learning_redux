@@ -4,7 +4,7 @@ import React from "react";
 import { useAppSelector } from "@/store/hooks";
 import ProductCard from "@/components/ProductCard";
 
-const Cart = () => {
+const CartPage = () => {
   const cartProducts = useAppSelector((state) => state.cart);
   const totalPrice = cartProducts.reduce(
     (prev, current) => prev + current.price * current.quantity,
@@ -16,9 +16,9 @@ const Cart = () => {
       <h2 className="title">Cart</h2>
       <div className="mt-4 products-grid">
         {cartProducts.length
-          ? cartProducts.map((p) => (
-              <ProductCard key={p.id} product={p} cartProduct />
-            ))
+          ? cartProducts
+              .toSorted((a, b) => b.quantity - a.quantity)
+              .map((p) => <ProductCard key={p.id} product={p} cartProduct />)
           : "There is no products."}
       </div>
       {cartProducts.length > 0 && (
@@ -33,4 +33,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartPage;

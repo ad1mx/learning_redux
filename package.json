@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.19.2",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "framer-motion": "^10.16.4",
     "next": "13.4.19",
     "postcss": "8.4.29",
     "react": "18.2.0",
@@ -21,7 +23,7 @@
     "react-icons": "^4.11.0",
     "react-redux": "^8.1.2",
     "tailwindcss": "3.3.3",
-    "typescript": "5.2.2",
-    "use-react-screenshot": "^3.0.0"
+    "thum.io": "^1.0.9",
+    "typescript": "5.2.2"
   }
 }
