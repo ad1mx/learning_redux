@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { useAppSelector } from "@/store/hooks";
 import React from "react";
-import BackLink from "./BackLink";
 
 const Body = ({ children }: { children: React.ReactNode }) => {
   const { theme } = useAppSelector((state) => state.config);
