@@ -4,6 +4,7 @@ import { fetchCategories } from "@/store/features/categoriesSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import React, { useState, useEffect } from "react";
 import CategoriesLoader from "./CategoriesLoader";
+import { BsX } from "react-icons/bs";
 
 const Category = ({
   category,
@@ -51,14 +52,27 @@ const Categories = ({
     <div className="flex gap-x-2">
       {!isLoading ? (
         !isError ? (
-          categories.map((category) => (
-            <Category
-              activeCategory={activeCategory}
-              handleChange={handleChange}
-              key={category}
-              category={category}
-            />
-          ))
+          <>
+            {categories.map((category) => (
+              <Category
+                activeCategory={activeCategory}
+                handleChange={handleChange}
+                key={category}
+                category={category}
+              />
+            ))}
+            {activeCategory && (
+              <button
+                onClick={() => handleChange(false)}
+                className="flex items-center gap-x-0.5"
+              >
+                <span> Reset</span>{" "}
+                <span className="translate-y-[1px] text-xl">
+                  <BsX />
+                </span>
+              </button>
+            )}
+          </>
         ) : (
           "Failed to load categories."
         )

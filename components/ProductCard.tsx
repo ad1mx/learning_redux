@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import {
   CartProdcut,
@@ -10,6 +10,7 @@ import {
 } from "@/store/features/cartSlice";
 import { useAppDispatch } from "@/store/hooks";
 import { Product } from "@/store/features/productsSlice";
+import { BsCheck } from "react-icons/bs";
 
 const ProductCard = ({
   product,
@@ -19,9 +20,13 @@ const ProductCard = ({
   cartProduct?: boolean;
 }) => {
   const dispatch = useAppDispatch();
+  const [added, setAdded] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     dispatch(addToCart(product));
+
+    setAdded(true);
+    setTimeout(() => setAdded(false), 5000);
   };
 
   const handleRemoveItem = (e: React.MouseEvent) => {
@@ -54,9 +59,25 @@ const ProductCard = ({
       </div>
       <Button
         onClick={!cartProduct ? handleAddToCart : handleRemoveItem}
-        sx={cartProduct ? "bg-red-600 hover:bg-red-700" : ""}
+        sx={
+          cartProduct
+            ? "bg-red-600 hover:bg-red-700"
+            : added
+            ? "bg-green-500 hover:bg-green-600"
+            : ""
+        }
       >
-        {!cartProduct ? "Add to cart" : "Remove item"}
+        {!cartProduct ? (
+          added ? (
+            <span className="flex items-center justify-center text-2xl">
+              <BsCheck />
+            </span>
+          ) : (
+            "Add to cart"
+          )
+        ) : (
+          "Remove item"
+        )}
       </Button>
     </div>
   );

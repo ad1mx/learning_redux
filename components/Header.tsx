@@ -19,10 +19,10 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between px-10 py-4 border-b-[1px] border-gray-200 dark:border-zinc-900 sticky top-0 bg-white dark:bg-zinc-950 z-[1]">
+    <header className="flex justify-between px-10 py-4 border-b-[1px] border-gray-200 dark:border-zinc-900 sticky top-0 bg-white bg-opacity-90 dark:bg-zinc-950 dark:bg-opacity-90 backdrop-blur z-[1]">
       <h2 className="text-lg font-semibold flex items-center gap-x-2">
         <Link href={"/"}>Learning</Link>
-        <button onClick={handleToggleTheme}>
+        <button onClick={handleToggleTheme} className="flex items-center">
           {theme === "light" ? <BsMoonFill /> : <BsSunFill />}
         </button>
       </h2>

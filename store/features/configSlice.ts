@@ -5,22 +5,17 @@ interface ConfigInitialState {
 }
 
 const initialState: ConfigInitialState = {
-  theme: localStorage["theme"] || "light",
+  theme: "light",
 };
 
 const configSlice = createSlice({
   name: "config",
   initialState,
   reducers: {
-    toggleTheme: (state) => {
-      const nextTheme = state.theme === "light" ? "dark" : "light";
-      localStorage.setItem("theme", nextTheme);
-
-      return {
-        ...state,
-        theme: nextTheme,
-      };
-    },
+    toggleTheme: (state) => ({
+      ...state,
+      theme: state.theme === "light" ? "dark" : "light",
+    }),
   },
 });
 
