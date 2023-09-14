@@ -2,7 +2,7 @@
 
 import { fetchCategories } from "@/store/features/categoriesSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import CategoriesLoader from "./CategoriesLoader";
 import { BsX } from "react-icons/bs";
 
